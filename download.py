@@ -4,7 +4,6 @@ import subprocess
 
 fileobj = {}
 download_count = 1
-download_url = ''
 
 # 檢查影片檔是否包含聲音
 def check_media(filename):
@@ -80,6 +79,8 @@ def onComplete(stream, file_path):
         # 合併聲音檔
         merge_media()
 
-yt = YouTube(download_url, on_progress_callback=onProgress,
-                     on_complete_callback=onComplete)
-yt.streams.filter(subtype='mp4',resolution="1080p")[0].download()
+def start_download(download_url):
+    global yt
+    yt = YouTube(download_url, on_progress_callback=onProgress,
+                        on_complete_callback=onComplete)
+    yt.streams.filter(subtype='mp4',resolution="1080p")[0].download()
