@@ -11,3 +11,6 @@ A chromium extention for downloading high quality YouTube video by your own serv
 python3 RequestServer.py
 ```
 and view on a YouTube web page and click the "download" button in MyTube! extention
+
+## Versions
+* v0.1: a preview and still in developing version that extention has its own function and CAN WORK!
