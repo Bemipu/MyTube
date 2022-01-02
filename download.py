@@ -81,7 +81,9 @@ def onComplete(stream, file_path):
         merge_media()
 
 def start_download(download_url):
-    global yt
+    global yt,fileobj,download_count
+    fileobj = {}
+    download_count = 1
     yt = YouTube(download_url, on_progress_callback=onProgress,
                         on_complete_callback=onComplete)
     yt.streams.filter(subtype='mp4',resolution="1080p")[0].download()

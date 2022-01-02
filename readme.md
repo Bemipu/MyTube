@@ -6,7 +6,7 @@ A chromium extension for downloading high quality YouTube video by your own serv
     * `pyTube` for fetching YouTube videos.
     * `flask` for hosting a server to process the request from chrome extension.
 
-## To use
+## Usage
 This application only support Linux OS, or you should try it on WSL(Windows Subsystem for Linux)
 
 ```
@@ -19,6 +19,7 @@ python3 RequestServer.py
 and view on a YouTube web page and click the "download" button in MyTube! extension
 
 ## Versions
+* v0.2.1: fix a bug that RequestServer will occur some problem when downloading second video
 * v0.2: a preview and still in developing version that extension work without any debug messages
 * v0.1.2: decided not to support Windows OS
 * v0.1.1: testing pyinstaller to pack RequestServer.py
