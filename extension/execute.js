@@ -30,28 +30,8 @@ function post(path, params, method='post') {
   
 
 const downloadEvent = () => {
-    alert(window.location.href);
+    //alert(window.location.href);
     post('http://127.0.0.1:5000/',{target_url: window.location.href});
-
-    // var url = "127.0.0.1:5000/";
-
-    // var xhr = new XMLHttpRequest();
-    // xhr.open("POST", url);
-
-    // xhr.setRequestHeader("Accept", "application/json");
-    // xhr.setRequestHeader("Content-Type", "application/json");
-
-    // xhr.onreadystatechange = function () {
-    // if (xhr.readyState === 4) {
-    //     console.log(xhr.responseText);
-    // }};
-
-    // var data = {
-    //     target_url: window.location.href,
-    // };
-
-    // xhr.send(data);
-
 };
   
 const onMessage = (message) => {
