@@ -1,6 +1,7 @@
 from pytube import YouTube
 import os
 import subprocess
+import sys
 
 fileobj = {}
 download_count = 1
@@ -84,3 +85,8 @@ def start_download(download_url):
     yt = YouTube(download_url, on_progress_callback=onProgress,
                         on_complete_callback=onComplete)
     yt.streams.filter(subtype='mp4',resolution="1080p")[0].download()
+
+
+if __name__ == '__main__':
+    start_download(sys.argv[1])
+    print(sys.argv[1])

@@ -13,4 +13,5 @@ python3 RequestServer.py
 and view on a YouTube web page and click the "download" button in MyTube! extention
 
 ## Versions
+* v0.1.1: testing pyinstaller to pack RequestServer.py on Windows OS environment  
 * v0.1: a preview and still in developing version that extention has its own function and CAN WORK!
