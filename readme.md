@@ -19,6 +19,7 @@ python3 RequestServer.py
 and view on a YouTube web page and click the "download" button in MyTube! extension
 
 ## Versions
+* v1.0: a stable and release version
 * v0.2.1: fix a bug that RequestServer will occur some problem when downloading second video
 * v0.2: a preview and still in developing version that extension work without any debug messages
 * v0.1.2: decided not to support Windows OS

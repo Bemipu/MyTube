@@ -8,8 +8,8 @@ def test():
     
     if request.method =='POST':
         target_url=request.values['target_url']
-        print("Get Request!")
-        print("Start downloading:",target_url)
+        print("收到請求!")
+        print("開始下載:",target_url)
         download.start_download(target_url)
     return redirect(target_url)
 

@@ -24,7 +24,7 @@ def merge_media():
     temp_output = os.path.join(fileobj['dir'], 'output.mp4')
 
     cmd = f'"./ffmpeg-static/ffmpeg" -i "{temp_video}" -i "{temp_audio}" \
-        -map 0:v -map 1:a -c copy -y "{temp_output}"'
+        -map 0:v -map 1:a -c copy -y "{temp_output}" -hide_banner -loglevel error'
     try:
         subprocess.call(cmd, shell=True)
         # 視訊檔重新命名
@@ -56,7 +56,7 @@ def onComplete(stream, file_path):
 
     if download_count == 1:
         if check_media(file_path) == -1:
-            print('此影片沒有聲音')
+            print('目前影片沒有聲音')
             download_count += 1
             try:
                 # 視訊檔重新命名
@@ -69,7 +69,7 @@ def onComplete(stream, file_path):
             print('準備下載聲音檔')
             download_sound()          # 下載聲音
         else:
-            print('此影片有聲音，下載完畢！')
+            print('目前影片有聲音，下載完畢！')
     else:
         try:
             # 聲音檔重新命名
@@ -84,8 +84,11 @@ def start_download(download_url):
     global yt,fileobj,download_count
     fileobj = {}
     download_count = 1
-    yt = YouTube(download_url, on_progress_callback=onProgress,
-                        on_complete_callback=onComplete)
+    yt = YouTube(
+        download_url, 
+        on_progress_callback=onProgress,
+        on_complete_callback=onComplete
+    )
     yt.streams.filter(subtype='mp4',resolution="1080p")[0].download()
 
 
