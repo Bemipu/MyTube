@@ -10,15 +10,13 @@ A chromium extension for downloading high quality YouTube video by your own serv
 This application only support Linux OS, or you should try it on WSL(Windows Subsystem for Linux)
 
 ```
-./RequestServer
-```
-OR
-```
 python3 RequestServer.py
 ```
 and view on a YouTube web page and click the "download" button in MyTube! extension
 
 ## Versions
+* v2.0: a stable version of myTube after chromium extension upgraded to 3
+* v1.1: upgrade the chromium extension to manifest v3
 * v1.0: a stable and release version
 * v0.2.1: fix a bug that RequestServer will occur some problem when downloading second video
 * v0.2: a preview and still in developing version that extension work without any debug messages

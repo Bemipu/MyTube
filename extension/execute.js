@@ -5,43 +5,32 @@
  * @param {string} [method=post] the method to use on the form
  */
 
-function post(path, params, method='post') {
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less verbose if you use one.
-    const form = document.createElement('form');
-    form.method = method;
-    form.action = path;
-  
+function post(path, params, method = 'post') {
+    const formData = new FormData();
     for (const key in params) {
         if (params.hasOwnProperty(key)) {
-            const hiddenField = document.createElement('input');
-            hiddenField.type = 'hidden';
-            hiddenField.name = key;
-            hiddenField.value = params[key];
-    
-            form.appendChild(hiddenField);
+            formData.append(key, params[key]);
         }
     }
   
-    document.body.appendChild(form);
-    form.submit();
+    return fetch(path, {
+        method: method,
+        body: formData
+    });
 }
-  
 
-const downloadEvent = () => {
-    //alert(window.location.href);
-    post('http://127.0.0.1:5000/',{target_url: window.location.href});
+const downloadEvent = (url) => {
+    post('http://127.0.0.1:5000/',{target_url: url});
 };
   
 const onMessage = (message) => {
     switch (message.action) {
         case 'DOWNLOAD':
-            downloadEvent();
+            downloadEvent(message.url);
             break;
         default:
             break;
     }
 }
-  
+
 chrome.runtime.onMessage.addListener(onMessage);

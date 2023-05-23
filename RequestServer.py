@@ -1,3 +1,4 @@
+#! python3
 from flask import Flask,request,redirect
 import download
 
@@ -15,5 +16,3 @@ def test():
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1",port="5000",debug=True)
-
-# pyinstaller --clean --win-private-assemblies -F RequestServer.py 
